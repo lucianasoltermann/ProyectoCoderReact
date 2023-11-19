@@ -1,32 +1,33 @@
+import CartWidget from '../CartWidgets/CartWidgets';
+import logo from '../assets/logo.svg';
+import './NavBar.modules.css';
+import { Link } from 'react-router-dom';
 
-import CartWidget from '../CartWidgets/CartWidgets'
-import logo from '../assets/logo.svg'
-import './NavBar.modules.css'
+import React from 'react';
 
-import React from 'react'
-
-function Navbar () {
-    return (
-        <div className='navbar'>
-            <img className='img'src={logo} alt="logo" />
-        <nav className='nav'>
-            <ul className='ul'>
-                <li className='li'>INICIO</li>
-                <li className='li'>
-                    <select className='select' id="opciones" name="opciones">
-                        <option value="opcion1">PRODUCTOS</option>
-                        <option value="opcion2">VELAS</option>
-                        <option value="opcion3">MACETAS</option>
-                        <option value="opcion4">LÁMPARAS</option>
-                        <option value="opcion5">FOGONEROS</option>
-                    </select>
-                </li>
-                <li className='li'>CONTACTO</li> 
+function Navbar() {
+  return (
+    <div className='navbar'>
+        <Link to={'/'}>
+            <img className='img' src={logo} alt="logo" />
+        </Link>
+      <nav className='nav'>
+        <ul className='ul'>
+          <li className='li'><Link to='/'>INICIO</Link></li>
+          <li className='li'>
+            <span className='select-label'>PRODUCTOS</span>
+            <ul className='select'>
+              <li><Link to={`/category/${'velas'}`}>VELAS</Link></li>
+              <li><Link to={`/category/${'lamparas'}`}>LÁMPARAS</Link></li>
+              <li><Link to={`/category/${'bandejas'}`}>BANDEJAS</Link></li>
             </ul>
-        </nav>
-            <CartWidget/>
-        </div>
-    )
+          </li>
+          <li className='li'><Link to='/contacto'>CONTACTO</Link></li>
+        </ul>
+      </nav>
+      <CartWidget />
+    </div>
+  );
 }
 
-export default Navbar
+export default Navbar;

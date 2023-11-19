@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .controles {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .boton {
+    font-size: 1rem;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  h3 {
+    margin: 0 10px;
+  }
+  
+  .botonAgregar {
+    font-size: 1rem;
+    font-family: 'Comfortaa', sans-serif;
+    padding: 10px 20px;
+    background-color:  rgba(16, 70, 80, 0.63);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .botonAgregar:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

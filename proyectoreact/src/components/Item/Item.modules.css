@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.CardItem {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 16px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+  
+    &:hover {
+      box-shadow: 0 8px 16px  rgba(16, 70, 80, 0.63);
+    }
+  }
+  
+  .itemHeader {
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  
+  .itemImg {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info {
+    font-family: 'Comfortaa', sans-serif;
+    margin-bottom: 8px;
+  }
+  
+  .itemFooter {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .option {
+    background-color:  rgba(16, 70, 80, 0.63);
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+
+  }
+  
