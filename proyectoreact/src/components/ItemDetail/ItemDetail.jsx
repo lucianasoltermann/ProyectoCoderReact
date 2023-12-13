@@ -1,7 +1,30 @@
-import ItemCount from '../ItemCount/ItemCount'
-import './ItemDetail.modules.css'
+import { useState } from 'react';
+import ItemCount from '../ItemCount/ItemCount';
+import './ItemDetail.modules.css';
+import { Link } from 'react-router-dom';
 
-const ItemDetail =({ id, name, img, category, description, price, stock})=>{
+const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
+  const [quantityAdd, setQuantityAdeed] = useState(0);
+
+  // Aquí defines la función addItem
+  const addItem = (item, quantity) => {
+    // Lógica para añadir el item al carrito
+    console.log('Item añadido:', item, 'Cantidad:', quantity);
+  };
+
+  const handleOnAdd = (quantity) => {
+    setQuantityAdeed(quantity);
+
+    const item = {
+      id,
+      name,
+      price,
+    };
+
+    // Llamas a addItem, asegurándote de que esté definida en el ámbito correcto
+    addItem(item, quantity);
+  };
+
     return(
         <article className='CardItem'>
         <header>
@@ -22,8 +45,14 @@ const ItemDetail =({ id, name, img, category, description, price, stock})=>{
             </p>
         </section>
         <footer className='itemFooter'>
-            <ItemCount initial={1} stock={stock} onAdd={(quantity) => console.log('Cantidad agregada', quantity)}
-></ItemCount>
+            {
+                quantityAdd > 0 ?(
+                    <Link to ='/cart' className='Option'>Terminar compra</Link>
+                    ) :(
+                        <ItemCount initial={1} stock={stock} onAdd={handleOnAdd}></ItemCount>
+                    )
+            }
+ 
         </footer>
     </article>
     )
