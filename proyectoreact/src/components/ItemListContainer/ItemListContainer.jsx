@@ -1,11 +1,10 @@
-
-
 import React, { useEffect, useState } from 'react';
 import './ItemListContainer.modules.css';
 import { getDocs, collection, query, where } from 'firebase/firestore';
-import { db } from '../../firebase/client';
+import { db } from '../../firebase/client.js';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
+
 
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
@@ -17,8 +16,8 @@ const ItemListContainer = ({ greeting }) => {
     setLoading(true);
 
     const collectionRef = categoryId
-      ? query(collection(db, 'products'), where('category', '==', categoryId))
-      : collection(db, 'products');
+      ? query(collection(db, 'productos'), where('category', '==', categoryId))
+      : collection(db, 'productos');
 
     const fetchData = async () => {
       try {

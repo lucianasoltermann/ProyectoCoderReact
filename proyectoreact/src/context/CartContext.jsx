@@ -12,7 +12,7 @@ export const CartProvider =({children}) =>{
         if(!isInCart (item.id)){
             setCart(prev => [...prev, {...item, quantity}])
         } else{
-            console.error('El producto ya fye agregado')
+            console.error('El producto ya fue agregado')
         }}
     const removeItem=(itemId) =>{
         const cartUpdated = cart.filter (prod => prod.id !== itemId)

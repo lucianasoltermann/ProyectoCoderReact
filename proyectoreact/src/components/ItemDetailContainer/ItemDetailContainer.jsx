@@ -1,26 +1,26 @@
 import './ItemDetailContainer.modules.css'
 import {useState, useEffect} from 'react'
-import {getProductById} from '../../asyncMonk'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
 import {getDoc, doc} from 'firebase/firestore'
-import {db} from '../../firebase/client'
+import {db} from '../../firebase/client.js'
+
 
 const ItemDetailContainer =() =>{
-    const [product, setProdut] = useState(null)
+    const [product, setProduct] = useState(null)
     const [loading, setLoading] = useState(true)
     
     const {itemId} = useParams()
     useEffect(()=>{
         setLoading(true)
 
-        const docRef = doc(db, 'products', itemId)
+        const docRef = doc(db, 'productos', itemId)
 
         getDoc(docRef)
         .then(response =>{
             const data = response.data()
             const productAdapted = {id: response.id, ...data}
-            setProdut(productAdapted)
+            setProduct(productAdapted)
         })
         .catch((error=>{
             console.error(error)

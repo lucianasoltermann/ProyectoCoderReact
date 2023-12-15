@@ -8,7 +8,7 @@ import CartItem from '../CartItem/CartItem'
 const Cart = () => {
     const { cart, clearCart, totalQuantity, total } = useContext(CartContext);
   
-    console.log(cart); // Agrega este console.log para verificar los productos en el carrito
+    console.log(cart); 
   
     if (totalQuantity === 0) {
       return (
@@ -23,10 +23,11 @@ const Cart = () => {
   
     return (
       <div className="cart-container">
-        {cart.map((p) => (
-          <CartItem key={p.id} item={p} />
-        ))}
-        <h3>Total ${total}</h3>
+        {cart.map((item) => (
+          <CartItem key={item.id} item={item} />
+          ))}
+        <h3>Total $ {cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0)}</h3>
+
         <button onClick={() => clearCart()} className="cart-button">
           Limpiar carrito
         </button>

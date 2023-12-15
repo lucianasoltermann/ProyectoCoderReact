@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
   const [quantityAdd, setQuantityAdeed] = useState(0);
 
-  // Aquí defines la función addItem
+
   const addItem = (item, quantity) => {
-    // Lógica para añadir el item al carrito
+
     console.log('Item añadido:', item, 'Cantidad:', quantity);
   };
 
@@ -21,7 +21,6 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
       price,
     };
 
-    // Llamas a addItem, asegurándote de que esté definida en el ámbito correcto
     addItem(item, quantity);
   };
 
